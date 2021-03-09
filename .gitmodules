@@ -1,0 +1,6 @@
+[submodule "cancernet-backend"]
+	path = cancernet-backend
+	url = git@github.com:moeabdol/cancernet-backend.git
+[submodule "cancernet-frontend"]
+	path = cancernet-frontend
+	url = git@github.com:moeabdol/cancernet-frontend.git
