@@ -1,0 +1,27 @@
+version: "2.1"
+
+services:
+  nginx:
+    image: nginx:1.18.0
+    networks:
+      - cancernet-network
+    volumes:
+      - ./default.conf:/etc/nginx/conf.d/default.conf
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./cancernet-frontend/build:/usr/share/nginx/html
+    depends_on:
+      - backend
+    ports:
+      - 80:80
+      - 443:443
+
+  backend:
+    build: ./cancernet-backend
+    networks:
+      - cancernet-network
+    ports:
+      - 5000:5000
+
+networks:
+  cancernet-network:
+    name: cancernet-network
